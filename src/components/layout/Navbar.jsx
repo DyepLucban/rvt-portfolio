@@ -1,0 +1,58 @@
+import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
+import { User, Briefcase, Layers, FolderKanban } from "lucide-react";
+import Container from "./Container";
+import { SITE } from "@/lib/constants";
+
+const NAV_ITEMS = [
+  { to: '/', label: 'Me', icon: User },
+  { to: '/experience', label: 'Experience', icon: Briefcase },
+  { to: '/skills', label: 'Skills', icon: Layers },
+  { to: '/projects', label: 'Projects', icon: FolderKanban },
+];
+
+export default function Navbar() {
+  return (
+    <header className="sticky top-0 z-50 border-b border-border bg-surface/80 backdrop-blur">
+      <Container className="flex h-16 items-center justify-between">
+        <NavLink
+          to="/"
+          className="font-display text-lg font-semibold text-text transition-colors hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded"
+        >
+          {SITE.name}
+          <span className="text-accent">.</span>
+        </NavLink>
+
+        <nav className="flex items-center gap-2">
+          {NAV_ITEMS.map(({ to, label, icon: Icon }) => (
+            <NavLink
+              key={to}
+              to={to}
+              className={({ isActive }) =>
+                `relative flex items-center gap-2 px-4 py-2 rounded-full transition-colors font-mono text-sm focus:outline-none focus:ring-2 focus:ring-accent ${
+                  isActive
+                    ? 'text-text'
+                    : 'text-text-muted hover:text-text'
+                }`
+              }
+            >
+              {({ isActive }) => (
+                <>
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-active-pill"
+                      className="absolute inset-0 bg-accent/10 rounded-full"
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
+                  <Icon className="h-4 w-4 relative z-10" strokeWidth={1.5} />
+                  <span className="relative z-10 hidden sm:inline">{label}</span>
+                </>
+              )}
+            </NavLink>
+          ))}
+        </nav>
+      </Container>
+    </header>
+  );
+}

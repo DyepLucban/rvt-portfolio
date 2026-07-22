@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(node -e \"import\\('lucide-react'\\).then\\(m => { const keys = Object.keys\\(m\\); console.log\\('Github variants:', keys.filter\\(k => /git|hub/i.test\\(k\\)\\)\\); console.log\\('Linkedin variants:', keys.filter\\(k => /link/i.test\\(k\\)\\)\\); console.log\\('total icons:', keys.length\\); }\\)\")",
+      "Bash(npm install *)"
+    ]
+  }
+}
