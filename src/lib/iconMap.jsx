@@ -6,7 +6,7 @@ const ICON_MAP = {
   JavaScript: SI.siJavascript,
   TypeScript: SI.siTypescript,
   HTML: SI.siHtml5,
-  CSS: null,
+  CSS: SI.siCss,
   Python: SI.siPython,
   React: SI.siReact,
   "Next.js": SI.siNextdotjs,
