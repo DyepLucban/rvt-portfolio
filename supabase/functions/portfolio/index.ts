@@ -42,9 +42,6 @@ async function getExperience(supabase: ReturnType<typeof createClient>) {
     .order("id", { ascending: false });
   if (error) throw error;
 
-  // Table columns don't match what ExperienceItem.jsx expects — reshape
-  // here so the frontend never needs to know the raw column names.
-  // tech_stack is stored as a JSON-encoded string, not a native array.
   return data.map((row: any) => ({
     id: row.id,
     role: row.role,
@@ -68,9 +65,7 @@ async function getProjects(supabase: ReturnType<typeof createClient>) {
   return data;
 }
 
-// Path segment after /portfolio/ -> handler. Each handler owns its own
-// table/shape knowledge; this map is the only thing that changes to add,
-// rename, or remove a resource.
+// Path segment after /portfolio/ -> handler.
 const ROUTES: Record<string, (supabase: ReturnType<typeof createClient>) => Promise<unknown>> = {
   skills: getSkills,
   experiences: getExperience,
@@ -95,10 +90,7 @@ Deno.serve(async (req) => {
     );
   }
 
-  // SUPABASE_URL / SUPABASE_ANON_KEY are auto-injected into every Edge
-  // Function's environment. Using the anon key (not the service role key)
-  // means this still runs as the caller, so each table's own RLS policy is
-  // what actually grants access — same rule as before, per table.
+  // SUPABASE_URL / SUPABASE_ANON_KEY are auto-injected into every Edge Function's environment.
   const supabase = createClient(
     Deno.env.get("SUPABASE_URL")!,
     Deno.env.get("SUPABASE_ANON_KEY")!
