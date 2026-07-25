@@ -8,7 +8,7 @@ export const projects = [
     description:
       "My personal portfolio built with React, Vite, and Tailwind CSS — a fully static site architected to plug into a real API later with minimal refactoring.",
     tags: ["React", "Vite", "Tailwind"],
-    image: "/assets/images/portfolio.png",
+    image: "/assets/images/prev-portfolio.png",
     liveUrl: "https://yourdomain.com",
     githubUrl: "https://github.com/you/portfolio",
     featured: true,

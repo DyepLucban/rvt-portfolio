@@ -40,6 +40,7 @@ async function getExperience(supabase: ReturnType<typeof createClient>) {
     .from("experiences")
     .select("*")
     .order("id", { ascending: false });
+
   if (error) throw error;
 
   return data.map((row: any) => ({
@@ -61,8 +62,17 @@ async function getProjects(supabase: ReturnType<typeof createClient>) {
     .from("projects")
     .select("*")
     .order("id", { descending: true });
+
   if (error) throw error;
-  return data;
+
+  return data.map((row: any) => ({
+    id: row.id,
+    name: row.name,
+    description: JSON.parse(row.description ?? []),
+    snapshot_url: row.snapshot_url,
+    live_url: row.live_url,
+    tags: JSON.parse(row.tech_stack ?? "[]")
+  }));
 }
 
 // Path segment after /portfolio/ -> handler.
