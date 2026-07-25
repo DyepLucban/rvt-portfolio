@@ -7,7 +7,12 @@ export const supabase = createClient(
   import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
 );
 
-// Skills API
-export const skillsAPI = {
-  browse: () => supabase.from('skills').select('*')
-}
+// One Edge Function ("portfolio"), routed by path per resource — clean
+// /functions/v1/portfolio/<resource> URLs, shaping done server-side. Add a
+// method here (matching a route in supabase/functions/portfolio/index.ts)
+// whenever a new resource comes online.
+export const portfolioAPI = {
+  getSkills: () => supabase.functions.invoke("portfolio/skills"),
+  getExperiences: () => supabase.functions.invoke("portfolio/experiences"),
+  getProjects: () => supabase.functions.invoke("portfolio/projects"),
+};

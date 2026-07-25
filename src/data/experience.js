@@ -10,7 +10,7 @@ export const experience = [
     end: "May 2026",
     description:
       "Lead the web platform team building a design-system-driven React app used by 40k+ users. Cut initial load time by 45% and mentored four engineers.",
-    tags: ["React.js", "Node.js", "Adonis.js", "Javascript", "Github Copilot", "Claude Code", "Docker"],
+    tags: ["React.js", "Node.js", "Adonis.js", "Javascript", "Github Copilot", "Claude Code", "Docker", "Redis"],
   },
   {
     id: 2,

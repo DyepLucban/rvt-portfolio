@@ -1,6 +1,9 @@
-import { experience } from "@/data/experience";
+import { portfolioAPI } from "@/lib/supabaseClient";
 
-// Static now, async-shaped for a future API. Only this file changes to go live.
-export async function getExperience() {
-  return Promise.resolve(experience);
+export async function getExperiences() {
+  const { data, error } = await portfolioAPI.getExperiences();
+
+  if (error) throw error;
+  
+  return data;
 }

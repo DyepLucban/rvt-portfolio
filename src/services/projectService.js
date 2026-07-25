@@ -16,3 +16,11 @@ export async function getProjectBySlug(slug) {
   const found = projects.find((p) => p.slug === slug);
   return Promise.resolve(found ?? null);
 }
+
+// IF USING SUPABASE FOR FETCHING PROJECTS
+// export async function getProjects() {
+//   const { data, error } = await portfolioAPI.getProjects();
+
+//   if (error) throw error;
+//   return data;
+// }

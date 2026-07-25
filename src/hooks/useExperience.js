@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getExperience } from "@/services/experienceService";
+import { getExperiences } from "@/services/experienceService";
 
 export function useExperience() {
   const [experience, setExperience] = useState([]);
@@ -8,7 +8,7 @@ export function useExperience() {
 
   useEffect(() => {
     let active = true;
-    getExperience()
+    getExperiences()
       .then((data) => active && setExperience(data))
       .catch((err) => active && setError(err))
       .finally(() => active && setLoading(false));

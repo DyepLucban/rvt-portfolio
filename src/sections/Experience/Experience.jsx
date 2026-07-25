@@ -11,7 +11,7 @@ export default function Experience() {
     <section id="experience">
       <motion.div
         initial="initial"
-        whileInView="animate"
+        animate="animate"
         viewport={{ once: true, amount: 0.2 }}
         variants={staggerContainer}
       >
