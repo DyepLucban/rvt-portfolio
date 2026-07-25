@@ -25,28 +25,28 @@ export const projects = [
     githubUrl: "https://github.com/you/taskflow",
     featured: true,
   },
-  {
-    id: 3,
-    slug: "api-forge",
-    title: "API Forge",
-    description:
-      "A CLI that scaffolds typed REST clients from an OpenAPI spec, with retries, caching, and mock servers baked in for local development.",
-    tags: ["Node", "TypeScript", "OpenAPI"],
-    image: "/assets/images/apiforge.png",
-    liveUrl: "https://apiforge.example.com",
-    githubUrl: "https://github.com/you/api-forge",
-    featured: false,
-  },
-  {
-    id: 4,
-    slug: "pixel-weather",
-    title: "Pixel Weather",
-    description:
-      "A tiny, delightful weather app rendering forecasts as animated pixel-art scenes. Built to explore Canvas performance and playful UI.",
-    tags: ["React", "Canvas", "Open-Meteo"],
-    image: "/assets/images/pixelweather.png",
-    liveUrl: "https://pixelweather.example.com",
-    githubUrl: "https://github.com/you/pixel-weather",
-    featured: false,
-  },
+  // {
+  //   id: 3,
+  //   slug: "api-forge",
+  //   title: "API Forge",
+  //   description:
+  //     "A CLI that scaffolds typed REST clients from an OpenAPI spec, with retries, caching, and mock servers baked in for local development.",
+  //   tags: ["Node", "TypeScript", "OpenAPI"],
+  //   image: "/assets/images/apiforge.png",
+  //   liveUrl: "https://apiforge.example.com",
+  //   githubUrl: "https://github.com/you/api-forge",
+  //   featured: false,
+  // },
+  // {
+  //   id: 4,
+  //   slug: "pixel-weather",
+  //   title: "Pixel Weather",
+  //   description:
+  //     "A tiny, delightful weather app rendering forecasts as animated pixel-art scenes. Built to explore Canvas performance and playful UI.",
+  //   tags: ["React", "Canvas", "Open-Meteo"],
+  //   image: "/assets/images/pixelweather.png",
+  //   liveUrl: "https://pixelweather.example.com",
+  //   githubUrl: "https://github.com/you/pixel-weather",
+  //   featured: false,
+  // },
 ];

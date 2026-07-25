@@ -13,14 +13,14 @@ const NAV_ITEMS = [
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-surface/80 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-border bg-surface/70 backdrop-blur-md">
       <Container className="flex h-16 items-center justify-between">
         <NavLink
           to="/"
           className="font-display text-lg font-semibold text-text transition-colors hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded"
         >
           {SITE.name}
-          <span className="text-accent">.</span>
+          <span className="font-mono text-accent">_</span>
         </NavLink>
 
         <nav className="flex items-center gap-2">

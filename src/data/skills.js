@@ -1,24 +1,29 @@
-// Static skills data (placeholder). Grouped by category so the Skills
-// section can render labeled clusters.
+// No longer imported at runtime — skillService.js now reads this from the
+// Supabase `skills` table. Kept here as the seed data for that table.
 export const skills = [
   {
     id: 1,
-    category: "Languages",
-    items: ["JavaScript", "TypeScript", "HTML", "CSS", "Python"],
+    category: "Backend",
+    items: ["PHP", "Python", "Node.js", "Laravel", "Codeigniter", "Sails.js", "Express.js", "Adonis.js", "MySQL", "PostgreSQL", "MongoDB", "Redis"],
   },
   {
     id: 2,
-    category: "Frameworks & Libraries",
-    items: ["React", "Next.js", "Vite", "Tailwind CSS", "Node.js"],
+    category: "Web",
+    items: ["HTML", "CSS", "JavaScript", "TypeScript", "Vue.js", "Bootstrap", "React.js", "Tailwind CSS"],
   },
   {
     id: 3,
-    category: "Tooling",
-    items: ["Git", "Vitest", "Playwright", "ESLint", "Docker"],
+    category: "Tools",
+    items: ["Git", "Github", "Docker", "Claude", "Claude Code", "Github Copilot"],
+  },
+  {
+    id: 4,
+    category: "Game Development",
+    items: ["C#", "Unity", "Unreal Engine"],
   },
   {
     id: 4,
     category: "Practices",
-    items: ["Design Systems", "Accessibility", "Performance", "CI/CD"],
+    items: ["Design Systems", "Performance", "CI/CD"],
   },
 ];

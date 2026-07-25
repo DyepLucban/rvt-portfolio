@@ -11,7 +11,7 @@ export default function ProjectCard({ project }) {
       {...cardHover}
       className="h-full"
     >
-      <Card className="group flex flex-col h-full shadow-sm hover:shadow-md hover:border-accent transition-all overflow-hidden">
+      <Card className="group flex flex-col h-full hover:border-accent hover:shadow-[0_8px_24px_-8px_var(--color-accent)] transition-all overflow-hidden">
         {project.image && (
           <div className="mb-4 h-48 w-full overflow-hidden rounded-lg bg-gradient-to-br from-accent/20 to-accent-warm/20">
             <img
@@ -60,8 +60,13 @@ export default function ProjectCard({ project }) {
         </p>
 
         <div className="mt-5 flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
-            <Badge key={tag}>{tag}</Badge>
+          {project.tags.map((tag, idx) => (
+            <Badge
+              key={tag}
+              className={idx % 2 === 0 ? "text-accent-green" : ""}
+            >
+              {tag}
+            </Badge>
           ))}
         </div>
       </Card>

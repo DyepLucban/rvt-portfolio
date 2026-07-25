@@ -6,8 +6,8 @@ export default function ExperienceItem({ item, index }) {
   return (
     <li className="relative border-l border-border pl-8 pb-10 last:pb-0">
       {/* Number marker on the timeline */}
-      <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full border border-border bg-surface font-mono text-xs text-accent">
-        {String(index + 1).padStart(2, "0")}
+      <span className="absolute -left-4 flex h-7 w-9 items-center justify-center rounded-full border border-border bg-surface font-mono text-xs text-accent-green">
+        [{String(index + 1).padStart(2, "0")}]
       </span>
 
       <div className="flex flex-wrap items-baseline justify-between gap-x-4">
@@ -28,11 +28,17 @@ export default function ExperienceItem({ item, index }) {
 
       {item.tags?.length > 0 && (
         <div className="mt-4 flex flex-wrap gap-2">
-          {item.tags.map((tag) => (
-            <Badge key={tag}>{tag}</Badge>
+          {item.tags.map((tag, idx) => (
+            <Badge
+              key={tag}
+              className={idx % 2 === 0 ? "text-accent-green" : ""}
+            >
+              {tag}
+            </Badge>
           ))}
         </div>
       )}
+      <br />
     </li>
   );
 }

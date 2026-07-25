@@ -1,11 +1,11 @@
 // Shared, non-content config. Edit these to match your details.
 
 export const SITE = {
-  name: "Your Name",
-  role: "Frontend Engineer",
+  name: "Jeffrey Lucban",
+  role: "Backend Engineer",
   tagline:
-    "I build fast, accessible web interfaces with a bias for clean details and calm design.",
-  email: "you@example.com",
+    "Turning complex requirements into reliable and scalable products that streamline operations.",
+  email: "lucbanjep@gmail.com",
   resumeUrl: "/resume.pdf",
 };
 
@@ -17,7 +17,7 @@ export const NAV_LINKS = [
 ];
 
 export const SOCIALS = {
-  github: "https://github.com/you",
-  linkedin: "https://linkedin.com/in/you",
-  email: "mailto:you@example.com",
+  github: "https://github.com/DyepLucban",
+  linkedin: "https://www.linkedin.com/in/jeffrey-lucban/",
+  email: "mailto:lucbanjep@gmail.com",
 };

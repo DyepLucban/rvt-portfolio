@@ -6,9 +6,9 @@ import { cn } from "@/lib/utils";
 // solid background; ghost is outline-only.
 const VARIANTS = {
   primary:
-    "bg-accent text-bg font-medium hover:opacity-90",
+    "bg-accent text-bg font-medium shadow-[0_4px_16px_-4px_var(--color-accent)] hover:opacity-90",
   ghost:
-    "border border-border text-text hover:border-accent",
+    "border border-border text-text hover:border-accent hover:bg-accent/5",
 };
 
 export default function Button({

@@ -6,11 +6,12 @@ export default function Badge({ className, children, ...props }) {
   return (
     <span
       className={cn(
-        "inline-block rounded border border-border bg-bg px-2 py-1 font-mono text-xs text-accent-warm",
+        "inline-block rounded border border-border bg-bg px-2 py-1 font-mono text-xs text-accent-warm transition-colors hover:border-accent-warm/50",
         className
       )}
       {...props}
     >
+      <span className="mr-0.5 text-text-muted/60">#</span>
       {children}
     </span>
   );

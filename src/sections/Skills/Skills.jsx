@@ -11,7 +11,7 @@ export default function Skills() {
     <section id="skills">
       <motion.div
         initial="initial"
-        whileInView="animate"
+        animate="animate"
         viewport={{ once: true, amount: 0.2 }}
         variants={staggerContainer}
       >
@@ -29,11 +29,16 @@ export default function Skills() {
         )}
 
         {!loading && !error && (
-          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="mt-10 columns-1 gap-4 sm:columns-2">
             {skills.map((group) => (
-              <motion.div key={group.id} variants={staggerItem}>
+              <motion.div
+                key={group.id}
+                variants={staggerItem}
+                className="mb-4 break-inside-avoid"
+              >
                 <Card>
                   <h3 className="font-mono text-xs uppercase tracking-[0.15em] text-text-muted">
+                    <span className="text-accent-green/70">{"// "}</span>
                     {group.category}
                   </h3>
                   <div className="mt-4 flex flex-wrap gap-2">
