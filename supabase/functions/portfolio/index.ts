@@ -69,6 +69,7 @@ async function getProjects(supabase: ReturnType<typeof createClient>) {
     id: row.id,
     name: row.name,
     description: JSON.parse(row.description ?? []),
+    github_url: row.github_url,
     snapshot_url: row.snapshot_url,
     live_url: row.live_url,
     tags: JSON.parse(row.tech_stack ?? "[]")

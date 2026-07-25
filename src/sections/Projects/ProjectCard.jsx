@@ -12,18 +12,18 @@ export default function ProjectCard({ project }) {
       className="h-full"
     >
       <Card className="group flex flex-col h-full hover:border-accent hover:shadow-[0_8px_24px_-8px_var(--color-accent)] transition-all overflow-hidden">
-        {project.image && (
+        {project.snapshot_url && (
           <div className="mb-4 h-48 w-full overflow-hidden rounded-lg bg-gradient-to-br from-accent/20 to-accent-warm/20">
             <img
-              src={project.image}
-              alt={project.title}
+              src={project.snapshot_url}
+              alt={project.name}
               className="h-full w-full object-cover"
             />
           </div>
         )}
         <div className="flex items-start justify-between gap-4">
           <h3 className="font-display text-xl font-semibold text-text">
-            {project.title}
+            {project.name}
           </h3>
           <div className="flex shrink-0 gap-3 pt-1">
             {project.githubUrl && (
@@ -39,9 +39,9 @@ export default function ProjectCard({ project }) {
                 <GithubIcon className="h-5 w-5" />
               </motion.a>
             )}
-            {project.liveUrl && (
+            {project.live_url && (
               <motion.a
-                href={project.liveUrl}
+                href={project.live_url}
                 target="_blank"
                 rel="noreferrer"
                 aria-label={`${project.title} live site`}
@@ -53,6 +53,9 @@ export default function ProjectCard({ project }) {
               </motion.a>
             )}
           </div>
+          <>
+            {console.log(project)}
+          </>
         </div>
 
         <p className="mt-3 flex-1 font-body text-sm leading-relaxed text-text-muted">
