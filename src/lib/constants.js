@@ -1,7 +1,7 @@
 // Shared, non-content config. Edit these to match your details.
 
 export const SITE = {
-  name: "Jeffrey Lucban",
+  name: "Jeffrey Lucbanxxxx",
   role: "Backend Engineer",
   tagline:
     "Turning complex requirements into reliable and scalable products that streamline operations.",
