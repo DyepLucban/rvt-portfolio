@@ -1,20 +1,65 @@
-# React + Vite
+# RVT Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal portfolio web app built with React and Vite. It showcases Me, Projects, Experience, and Skills pages, currently backed by static local data but architected so it can plug into a real API/Supabase backend later with minimal refactoring.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Frontend**
+- React 19
+- React Router 7
+- Vite 8 (build tool / dev server) with `@vitejs/plugin-react`
 
-## React Compiler
+**Styling & Animation**
+- Tailwind CSS 4 (via `@tailwindcss/vite`)
+- Framer Motion
+- lucide-react, simple-icons (icons)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Backend / Data**
+- Supabase (`@supabase/supabase-js`, `@supabase/ssr`)
+- Supabase Edge Functions (CLI-managed, see `supabase/functions/`)
 
-## Expanding the ESLint configuration
+**Tooling**
+- ESLint 10
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
 
+### Prerequisites
+- Node.js >= 20
+- npm
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repo-url>
+   cd rvt-portfolio
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Set up environment variables:
+   ```bash
+   cp .env.example .env
+   ```
+   Then fill in the values in `.env`:
+   - `VITE_API_BASE_URL` — base URL for a future API (leave blank while running on static local data)
+   - `VITE_SUPABASE_URL`
+   - `VITE_SUPABASE_PUBLISHABLE_KEY`
+   - `VITE_SUPABASE_SECRET_KEY`
+
+4. Start the dev server:
+   ```bash
+   npm run dev
+   ```
+
+### Other Scripts
+
+- `npm run build` — build for production
+- `npm run preview` — preview the production build locally
+- `npm run lint` — run ESLint
 
 # Para kay Rene! 
 # ![alt text](image.png)
