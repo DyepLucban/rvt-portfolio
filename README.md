@@ -61,5 +61,5 @@ A personal portfolio web app built with React and Vite. It showcases Me, Project
 - `npm run preview` — preview the production build locally
 - `npm run lint` — run ESLint
 
-# Para kay Rene! 
-# ![alt text](image.png)
+### Para kay Rene! 
+### ![alt text](image.png)
