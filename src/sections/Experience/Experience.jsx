@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { SectionHeading } from "@/components/ui";
+import { SectionHeading, Spinner } from "@/components/ui";
 import { useExperience } from "@/hooks/useExperience";
 import ExperienceItem from "./ExperienceItem";
 import { staggerContainer, staggerItem } from "@/lib/motionVariants";
@@ -17,11 +17,7 @@ export default function Experience() {
       >
         <SectionHeading eyebrow="Experience" title="Where I’ve worked" />
 
-        {loading && (
-          <p className="mt-8 font-mono text-sm text-text-muted">
-            Loading experience…
-          </p>
-        )}
+        {loading && <Spinner label="Loading experience…" className="mt-8" />}
         {error && (
           <p className="mt-8 font-mono text-sm text-text-muted">
             Couldn’t load experience.

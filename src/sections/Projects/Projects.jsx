@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { SectionHeading } from "@/components/ui";
+import { SectionHeading, Spinner } from "@/components/ui";
 import { useProjects } from "@/hooks/useProjects";
 import ProjectCard from "./ProjectCard";
 import { staggerContainer, staggerItem } from "@/lib/motionVariants";
@@ -17,11 +17,7 @@ export default function Projects() {
       >
         <SectionHeading eyebrow="Projects" title="Things I’ve built" />
 
-        {loading && (
-          <p className="mt-8 font-mono text-sm text-text-muted">
-            Loading projects…
-          </p>
-        )}
+        {loading && <Spinner label="Loading projects…" className="mt-8" />}
         {error && (
           <p className="mt-8 font-mono text-sm text-text-muted">
             Couldn’t load projects.

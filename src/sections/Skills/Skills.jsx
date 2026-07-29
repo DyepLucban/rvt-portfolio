@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Card, SectionHeading } from "@/components/ui";
+import { Card, SectionHeading, Spinner } from "@/components/ui";
 import { useSkills } from "@/hooks/useSkills";
 import SkillBadge from "./SkillBadge";
 import { staggerContainer, staggerItem } from "@/lib/motionVariants";
@@ -17,11 +17,7 @@ export default function Skills() {
       >
         <SectionHeading eyebrow="Skills" title="What I work with" />
 
-        {loading && (
-          <p className="mt-8 font-mono text-sm text-text-muted">
-            Loading skills…
-          </p>
-        )}
+        {loading && <Spinner label="Loading skills…" className="mt-8" />}
         {error && (
           <p className="mt-8 font-mono text-sm text-text-muted">
             Couldn’t load skills.
