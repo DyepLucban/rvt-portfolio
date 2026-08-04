@@ -5,8 +5,7 @@ import { cn } from "@/lib/utils";
 // Variants per SPEC §6.5 — primary is the one place the strong accent fills a
 // solid background; ghost is outline-only.
 const VARIANTS = {
-  primary:
-    "bg-accent text-bg font-medium shadow-[0_4px_16px_-4px_var(--color-accent)] hover:opacity-90",
+  primary: "bg-accent text-bg font-medium hover:bg-accent-warm",
   ghost:
     "border border-border text-text hover:border-accent hover:bg-accent/5",
 };
@@ -20,8 +19,8 @@ export default function Button({
   ...props
 }) {
   const classes = cn(
-    "inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm transition-colors",
-    "focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg",
+    "inline-flex items-center justify-center gap-2 rounded-sm px-5 py-2.5 font-display text-sm uppercase tracking-wide transition-colors",
+    "focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg",
     VARIANTS[variant],
     className
   );

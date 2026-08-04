@@ -7,6 +7,8 @@ export const SITE = {
     "Turning complex requirements into reliable and scalable products that streamline operations.",
   email: "lucbanjep@gmail.com",
   resumeUrl: "/resume.pdf",
+  location: "Philippines",
+  availability: "Open to work",
 };
 
 // In-page anchor links for the single-page layout (not routes yet).

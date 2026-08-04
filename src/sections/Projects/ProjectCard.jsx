@@ -3,6 +3,8 @@ import { ExternalLink } from "lucide-react";
 import { GithubIcon } from "@/components/ui/BrandIcons";
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
+import Frame from "@/components/ui/Frame";
+import IconButton from "@/components/ui/IconButton";
 import { cardHover } from "@/lib/motionVariants";
 
 export default function ProjectCard({ project }) {
@@ -11,51 +13,42 @@ export default function ProjectCard({ project }) {
       {...cardHover}
       className="h-full"
     >
-      <Card className="group flex flex-col h-full hover:border-accent hover:shadow-[0_8px_24px_-8px_var(--color-accent)] transition-all overflow-hidden">
+      <Card className="group flex flex-col h-full hover:border-accent transition-all overflow-hidden bg-surface/80">
         {project.snapshot_url && (
-          <div className="mb-4 h-48 w-full overflow-hidden rounded-lg bg-gradient-to-br from-accent/20 to-accent-warm/20">
+          <Frame className="mb-4 h-48 w-full overflow-hidden rounded-sm bg-linear-to-br from-accent/20 to-accent-warm/20">
             <img
               src={project.snapshot_url}
               alt={project.name}
               className="h-full w-full object-cover"
             />
-          </div>
+          </Frame>
         )}
         <div className="flex items-start justify-between gap-4">
           <h3 className="font-display text-xl font-semibold text-text">
             {project.name}
           </h3>
-          <div className="flex shrink-0 gap-3 pt-1">
+          <div className="flex shrink-0 gap-2 pt-1">
             {project.githubUrl && (
-              <motion.a
+              <IconButton
                 href={project.githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                aria-label={`${project.title} on GitHub`}
-                className="text-text-muted transition-colors hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <GithubIcon className="h-5 w-5" />
-              </motion.a>
+                label={`${project.name} on GitHub`}
+                size="sm"
+                icon={<GithubIcon />}
+              />
             )}
             {project.live_url && (
-              <motion.a
+              <IconButton
                 href={project.live_url}
                 target="_blank"
                 rel="noreferrer"
-                aria-label={`${project.title} live site`}
-                className="text-text-muted transition-colors hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <ExternalLink className="h-5 w-5" strokeWidth={1.5} />
-              </motion.a>
+                label={`${project.name} live site`}
+                size="sm"
+                icon={<ExternalLink strokeWidth={1.5} />}
+              />
             )}
           </div>
-          <>
-            {console.log(project)}
-          </>
         </div>
 
         <p className="mt-3 flex-1 font-body text-sm leading-relaxed text-text-muted">

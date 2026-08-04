@@ -1,11 +1,33 @@
 import { cn } from "@/lib/utils";
 
-// Surface panel with soft shadow + thin border (DESIGN_REVAMP.md §2).
-export default function Card({ as: Tag = "div", className, children, ...props }) {
+// Flat surface panel, sharp corners, hairline border — no drop shadow.
+const VARIANTS = {
+  default: "border-border bg-surface",
+  raised: "border-border bg-surface-raised shadow-md",
+  outline: "border-border bg-transparent",
+};
+
+const PADDING = {
+  none: "",
+  sm: "p-4",
+  md: "p-6",
+  lg: "p-8",
+};
+
+export default function Card({
+  as: Tag = "div",
+  variant = "default",
+  padding = "md",
+  className,
+  children,
+  ...props
+}) {
   return (
     <Tag
       className={cn(
-        "rounded-xl border border-border bg-surface p-6 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.03),0_1px_2px_rgba(0,0,0,0.2)] transition-all",
+        "rounded-sm border transition-all",
+        VARIANTS[variant],
+        PADDING[padding],
         className
       )}
       {...props}

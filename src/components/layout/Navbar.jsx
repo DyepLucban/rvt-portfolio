@@ -17,7 +17,7 @@ export default function Navbar() {
       <Container className="flex h-16 items-center justify-between">
         <NavLink
           to="/"
-          className="font-display text-lg font-semibold text-text transition-colors hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded"
+          className="font-display text-lg font-semibold uppercase tracking-wide text-text transition-colors hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
         >
           {SITE.name}
           <span className="font-mono text-accent">_</span>
@@ -29,7 +29,7 @@ export default function Navbar() {
               key={to}
               to={to}
               className={({ isActive }) =>
-                `relative flex items-center gap-2 px-4 py-2 rounded-full transition-colors font-mono text-sm focus:outline-none focus:ring-2 focus:ring-accent ${
+                `relative flex items-center gap-2 px-4 py-2 transition-colors font-display text-sm uppercase tracking-wide focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   isActive
                     ? 'text-text'
                     : 'text-text-muted hover:text-text'
@@ -40,9 +40,9 @@ export default function Navbar() {
                 <>
                   {isActive && (
                     <motion.span
-                      layoutId="nav-active-pill"
-                      className="absolute inset-0 bg-accent/10 rounded-full"
-                      transition={{ duration: 0.3 }}
+                      layoutId="nav-active-underline"
+                      className="absolute inset-x-3 bottom-0 h-0.5 bg-accent"
+                      transition={{ duration: 0.15 }}
                     />
                   )}
                   <Icon className="h-4 w-4 relative z-10" strokeWidth={1.5} />

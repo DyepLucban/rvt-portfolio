@@ -1,5 +1,6 @@
 import { Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
+import IconButton from "@/components/ui/IconButton";
 import Container from "./Container";
 import { SITE, SOCIALS } from "@/lib/constants";
 
@@ -16,18 +17,17 @@ export default function Footer() {
         <p className="font-mono text-xs text-text-muted">
           © {new Date().getFullYear()} {SITE.name}. Built with React &amp; Tailwind.
         </p>
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-2">
           {SOCIAL_ICONS.map(({ href, label, Icon }) => (
-            <a
+            <IconButton
               key={label}
               href={href}
-              aria-label={label}
               target="_blank"
               rel="noreferrer"
-              className="text-text-muted transition-colors hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded"
-            >
-              <Icon className="h-5 w-5" strokeWidth={1.5} />
-            </a>
+              label={label}
+              size="sm"
+              icon={<Icon strokeWidth={1.5} />}
+            />
           ))}
         </div>
       </Container>

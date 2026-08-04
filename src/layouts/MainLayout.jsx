@@ -9,6 +9,9 @@ export default function MainLayout() {
 
   return (
     <div className="flex min-h-screen flex-col">
+      {/* Tints the page background image so it stays a faint backdrop rather
+          than competing with content. */}
+      <div className="fixed inset-0 -z-10 bg-bg/50" aria-hidden="true" />
       <Navbar />
       <main className="flex-1">
         <AnimatePresence mode="wait">

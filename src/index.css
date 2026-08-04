@@ -1,35 +1,26 @@
 @import "tailwindcss";
 
-/* --- Design tokens. "Cool Waters" palette: navy, teal, emerald, mint. --- */
+/* --- Design tokens: navy/gold palette. --- */
 :root {
-  --color-bg: #17324a;
-  --color-surface: #1f4560;
-  --color-border: #2e5c78;
-  --color-text: #e8faee;
-  --color-text-muted: #86aebb;
-  --color-accent: #57cc99;
-  --color-accent-warm: #38a3a5;
-  --color-accent-green: #80ed99;
-  --gradient-hero: radial-gradient(
-    circle at 20% 15%,
-    color-mix(in srgb, #57cc99 22%, transparent),
-    transparent 55%
-  ),
-  radial-gradient(
-    circle at 80% 60%,
-    color-mix(in srgb, #38a3a5 22%, transparent),
-    transparent 55%
-  ),
-  radial-gradient(
-    circle at 50% 100%,
-    color-mix(in srgb, #2e5c78 45%, transparent),
-    transparent 60%
-  );
+  --color-bg: #171f29;
+  --color-surface: #1f2430;
+  --color-surface-raised: color-mix(in srgb, #1f2430 80%, #dde3ee 20%);
+  --color-border: color-mix(in srgb, #1f2430 78%, #dde3ee 22%);
+  --color-text: #fefefd;
+  --color-text-muted: #dde3ee;
+  --color-accent: #e9ba88;
+  --color-accent-warm: color-mix(in srgb, #e9ba88 75%, black);
+  --color-accent-green: #e9ba88;
   --grid-dot: radial-gradient(
     circle at 1px 1px,
-    color-mix(in srgb, #e8faee 8%, transparent) 1px,
+    color-mix(in srgb, var(--color-text) 8%, transparent) 1px,
     transparent 0
   );
+
+  /* Page background image — swap this one line (or replace the file at this
+     path) to change it. Sits behind a translucent --color-bg wash applied in
+     MainLayout so it always stays legible under text/cards. */
+  --bg-image: url("/images/bg-texture.svg");
 }
 
 /* Map raw vars into Tailwind v4's theme namespaces. `inline` means the
@@ -38,6 +29,7 @@
 @theme inline {
   --color-bg: var(--color-bg);
   --color-surface: var(--color-surface);
+  --color-surface-raised: var(--color-surface-raised);
   --color-border: var(--color-border);
   --color-text: var(--color-text);
   --color-text-muted: var(--color-text-muted);
@@ -45,9 +37,9 @@
   --color-accent-warm: var(--color-accent-warm);
   --color-accent-green: var(--color-accent-green);
 
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Rajdhani", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
 
 /* Faint dot-grid texture, used behind the hero and other section backgrounds */
@@ -58,6 +50,11 @@
 
 body {
   background-color: var(--color-bg);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: inherit;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: var(--color-text);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;

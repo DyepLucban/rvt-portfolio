@@ -8,7 +8,7 @@ export default function SkillBadge({ label }) {
   return (
     <motion.div
       {...badgeHover}
-      className="group flex flex-col items-center gap-2 rounded-lg border border-border bg-surface p-3 transition-all hover:border-accent hover:shadow-[0_4px_16px_-4px_var(--color-accent)]"
+      className="group flex flex-col items-center gap-2 rounded-sm border border-border bg-surface p-3 transition-all hover:border-accent"
       title={label}
     >
       {IconComponent ? (
