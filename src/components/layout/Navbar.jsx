@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { User, Briefcase, Layers, FolderKanban } from "lucide-react";
 import Container from "./Container";
+import PanelHeader from "@/components/ui/PanelHeader";
 import { SITE } from "@/lib/constants";
 
 const NAV_ITEMS = [
@@ -11,10 +12,16 @@ const NAV_ITEMS = [
   { to: '/projects', label: 'Projects', icon: FolderKanban },
 ];
 
+// The site's whole chrome reads as one open terminal window — every content
+// panel opens with this exact dot-chrome + mono-path header, so the
+// persistent shell gets the same titlebar instead of a plain generic nav.
+const SITE_PATH = `~/${SITE.name.toLowerCase().replace(/\s+/g, "-")}`;
+
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-surface/70 backdrop-blur-md">
-      <Container className="flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-50 bg-surface/70 backdrop-blur-md">
+      <PanelHeader label={SITE_PATH} />
+      <Container className="flex h-16 items-center justify-between border-b border-border">
         <NavLink
           to="/"
           className="font-display text-lg font-semibold uppercase tracking-wide text-text transition-colors hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"

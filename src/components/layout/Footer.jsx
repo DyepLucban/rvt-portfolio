@@ -15,6 +15,7 @@ export default function Footer() {
     <footer className="border-t border-border py-10">
       <Container className="flex flex-col items-center justify-between gap-4 sm:flex-row">
         <p className="font-mono text-xs text-text-muted">
+          <span className="text-accent-warm">{"> "}</span>
           © {new Date().getFullYear()} {SITE.name}. Built with React &amp; Tailwind.
         </p>
         <div className="flex items-center gap-2">
