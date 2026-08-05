@@ -24,7 +24,7 @@ export default function Navbar() {
       <Container className="flex h-16 items-center justify-between border-b border-border">
         <NavLink
           to="/"
-          className="font-display text-lg font-semibold uppercase tracking-wide text-text transition-colors hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+          className="whitespace-nowrap font-display text-sm font-semibold uppercase tracking-normal text-text transition-colors hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm sm:text-lg sm:tracking-wide"
         >
           {SITE.name}
           <span className="font-mono text-accent">_</span>

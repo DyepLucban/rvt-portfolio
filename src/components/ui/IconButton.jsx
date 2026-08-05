@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { badgeHover } from "@/lib/motionVariants";
 
 // Square icon-only button for toolbars/card actions — bordered chrome
 // instead of a bare floating glyph. Always pass `label` (aria-label/title).
@@ -32,15 +34,28 @@ export default function IconButton({
 
   if (href) {
     return (
-      <a href={href} aria-label={label} title={label} className={classes} {...props}>
+      <motion.a
+        href={href}
+        aria-label={label}
+        title={label}
+        className={classes}
+        {...badgeHover}
+        {...props}
+      >
         {icon}
-      </a>
+      </motion.a>
     );
   }
 
   return (
-    <button aria-label={label} title={label} className={classes} {...props}>
+    <motion.button
+      aria-label={label}
+      title={label}
+      className={classes}
+      {...badgeHover}
+      {...props}
+    >
       {icon}
-    </button>
+    </motion.button>
   );
 }

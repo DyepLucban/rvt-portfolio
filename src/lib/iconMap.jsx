@@ -26,7 +26,6 @@ const ICON_MAP = {
   Laravel: SI.siLaravel,
   Codeigniter: SI.siCodeigniter,
   PHP: SI.siPhp,
-  "Node.js": SI.siNodedotjs,
   "Sails.js": SI.siNodedotjs,
   "Express.js": SI.siNodedotjs,
   "Adonis.js": SI.siNodedotjs,
@@ -62,9 +61,6 @@ export function SimpleIcon({ iconData, className = "h-6 w-6" }) {
   );
 }
 
-export function getIconComponent(skillName) {
-  const iconData = ICON_MAP[skillName];
-  if (!iconData) return null;
-
-  return (props) => <SimpleIcon iconData={iconData} {...props} />;
+export function getIconData(skillName) {
+  return ICON_MAP[skillName] ?? null;
 }

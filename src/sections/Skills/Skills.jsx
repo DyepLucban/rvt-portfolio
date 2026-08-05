@@ -12,7 +12,6 @@ export default function Skills() {
       <motion.div
         initial="initial"
         animate="animate"
-        viewport={{ once: true, amount: 0.2 }}
         variants={staggerContainer}
       >
         <SectionHeading eyebrow="Skills" title="What I work with" />
@@ -25,16 +24,13 @@ export default function Skills() {
         )}
 
         {!loading && !error && (
-          <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-2">
-            {skills.map((group, index) => (
+          <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {skills.map((group) => (
               <motion.div key={group.id} variants={staggerItem} className="h-full">
                 <Frame className="flex h-full flex-col overflow-hidden rounded-sm border border-border bg-surface/80">
                   <PanelHeader label={group.category} />
                   <div className="p-5">
-                    {/* <h3 className="font-display text-sm font-semibold uppercase tracking-wide text-text">
-                      {group.category}
-                    </h3> */}
-                    <div className="mt-4 flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2">
                       {group.items.map((item) => (
                         <SkillBadge key={item} label={item} />
                       ))}

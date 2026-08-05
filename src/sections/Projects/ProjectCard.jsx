@@ -28,9 +28,9 @@ export default function ProjectCard({ project }) {
             {project.name}
           </h3>
           <div className="flex shrink-0 gap-2 pt-1">
-            {project.githubUrl && (
+            {project.github_url && (
               <IconButton
-                href={project.githubUrl}
+                href={project.github_url}
                 target="_blank"
                 rel="noreferrer"
                 label={`${project.name} on GitHub`}

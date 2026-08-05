@@ -49,3 +49,12 @@ export const scaleUp = {
   animate: { opacity: 1, scale: 1 },
   transition: transitionConfig,
 };
+
+// Same shape as staggerItem, plus an exit — for grids whose membership
+// changes at runtime (e.g. tag-filtered results) inside AnimatePresence.
+export const filterItem = {
+  initial: { opacity: 0, y: 12 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -8 },
+  transition: { duration: 0.15, ease: [0.22, 1, 0.36, 1] },
+};

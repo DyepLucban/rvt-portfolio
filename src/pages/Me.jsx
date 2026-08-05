@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Mail, ArrowRight } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
 import Container from "@/components/layout/Container";
@@ -16,6 +16,9 @@ const SPEC_ROWS = [
 ];
 
 export default function Me() {
+  const reduceMotion = useReducedMotion();
+  const bootAnimated = !reduceMotion;
+
   return (
     <section className="relative min-h-screen pt-28 pb-24 sm:pt-36 sm:pb-32">
       <div className="absolute inset-0 -z-10 bg-grid-dots opacity-40" aria-hidden="true" />
@@ -23,12 +26,13 @@ export default function Me() {
       <Container className="max-w-6xl">
         <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr] lg:items-stretch">
           <Frame className="overflow-hidden rounded-sm border border-border bg-surface/40 backdrop-blur-sm">
-            <PanelHeader label="~/me" />
+            <PanelHeader label="~/me" animated={bootAnimated} />
 
             <motion.div
               variants={staggerContainer}
               initial="initial"
               animate="animate"
+              transition={{ delayChildren: bootAnimated ? 0.35 : 0, staggerChildren: 0.05 }}
               className="p-8 sm:p-12"
             >
               <motion.p
@@ -100,11 +104,11 @@ export default function Me() {
           </Frame>
 
           <Frame className="overflow-hidden rounded-sm border border-border bg-surface/40 backdrop-blur-sm">
-            <PanelHeader label="~/spec.data" />
+            <PanelHeader label="~/spec.data" animated={bootAnimated} />
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.15, delay: 0.15 }}
+              transition={{ duration: 0.15, delay: bootAnimated ? 0.4 : 0 }}
               className="p-6 sm:p-8"
             >
               <DataRow title="Developer data" rows={SPEC_ROWS} />

@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { badgeHover } from "@/lib/motionVariants";
-import { getIconComponent } from "@/lib/iconMap.jsx";
+import { getIconData, SimpleIcon } from "@/lib/iconMap.jsx";
 
 export default function SkillBadge({ label }) {
-  const IconComponent = getIconComponent(label);
+  const iconData = getIconData(label);
 
   return (
     <motion.div
@@ -11,8 +11,8 @@ export default function SkillBadge({ label }) {
       className="group flex flex-col items-center gap-2 rounded-sm border border-border bg-surface p-3 transition-all hover:border-accent"
       title={label}
     >
-      {IconComponent ? (
-        <IconComponent className="h-6 w-6 text-accent" />
+      {iconData ? (
+        <SimpleIcon iconData={iconData} className="h-6 w-6 text-accent" />
       ) : (
         <div className="h-6 w-6 rounded bg-accent/20 flex items-center justify-center text-xs text-accent">
           ?

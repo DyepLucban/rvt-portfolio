@@ -1,9 +1,9 @@
 import { useMemo, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { SectionHeading, Spinner, Tag } from "@/components/ui";
 import { useProjects } from "@/hooks/useProjects";
 import ProjectCard from "./ProjectCard";
-import { staggerContainer, staggerItem } from "@/lib/motionVariants";
+import { staggerContainer, filterItem } from "@/lib/motionVariants";
 
 export default function Projects() {
   const { projects, loading, error } = useProjects();
@@ -23,7 +23,6 @@ export default function Projects() {
       <motion.div
         initial="initial"
         animate="animate"
-        viewport={{ once: true, amount: 0.2 }}
         variants={staggerContainer}
       >
         <SectionHeading eyebrow="Projects" title="Things I’ve built" />
@@ -55,11 +54,20 @@ export default function Projects() {
             )}
 
             <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-              {visibleProjects.map((project) => (
-                <motion.div key={project.id} variants={staggerItem}>
-                  <ProjectCard project={project} />
-                </motion.div>
-              ))}
+              <AnimatePresence mode="popLayout">
+                {visibleProjects.map((project) => (
+                  <motion.div
+                    key={project.id}
+                    layout
+                    variants={filterItem}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                  >
+                    <ProjectCard project={project} />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
             </div>
           </>
         )}

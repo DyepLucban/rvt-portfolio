@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { badgeHover } from "@/lib/motionVariants";
+
+const MotionLink = motion.create(Link);
 
 // Renders a NavLink when `to` is passed, <a> when `href` is passed, otherwise <button>.
 // Variants per SPEC §6.5 — primary is the one place the strong accent fills a
@@ -27,23 +31,23 @@ export default function Button({
 
   if (to) {
     return (
-      <Link to={to} className={classes} {...props}>
+      <MotionLink to={to} className={classes} {...badgeHover} {...props}>
         {children}
-      </Link>
+      </MotionLink>
     );
   }
 
   if (href) {
     return (
-      <a href={href} className={classes} {...props}>
+      <motion.a href={href} className={classes} {...badgeHover} {...props}>
         {children}
-      </a>
+      </motion.a>
     );
   }
 
   return (
-    <button className={classes} {...props}>
+    <motion.button className={classes} {...badgeHover} {...props}>
       {children}
-    </button>
+    </motion.button>
   );
 }

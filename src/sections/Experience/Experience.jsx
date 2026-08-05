@@ -12,7 +12,6 @@ export default function Experience() {
       <motion.div
         initial="initial"
         animate="animate"
-        viewport={{ once: true, amount: 0.2 }}
         variants={staggerContainer}
       >
         <SectionHeading eyebrow="Experience" title="Where I’ve worked" />
