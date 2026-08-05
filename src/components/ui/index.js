@@ -10,3 +10,4 @@ export { default as Frame } from "./Frame";
 export { default as PanelHeader } from "./PanelHeader";
 export { default as DataRow } from "./DataRow";
 export { default as Tag } from "./Tag";
+export { default as StatusBadge } from "./StatusBadge";

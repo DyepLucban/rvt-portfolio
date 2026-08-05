@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Mail, ArrowRight } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
 import Container from "@/components/layout/Container";
-import { Button, DataRow, PanelHeader } from "@/components/ui";
+import { Button, DataRow, PanelHeader, StatusBadge } from "@/components/ui";
 import Frame from "@/components/ui/Frame";
 import IconButton from "@/components/ui/IconButton";
 import { SITE, SOCIALS } from "@/lib/constants";
@@ -11,7 +11,14 @@ import { staggerContainer, staggerItem } from "@/lib/motionVariants";
 const SPEC_ROWS = [
   { label: "Role", value: SITE.role },
   { label: "Location", value: SITE.location },
-  { label: "Availability", value: SITE.availability },
+  {
+    label: "Availability",
+    value: <StatusBadge tone={
+      (SITE.availability === "Open to work" ? "active" : "inactive")
+    }>
+      {SITE.availability}
+    </StatusBadge>,
+  },
   { label: "Contact", value: SITE.email },
 ];
 
