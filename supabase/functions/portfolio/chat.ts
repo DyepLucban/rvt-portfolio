@@ -41,8 +41,10 @@ const RULES = `RULES — follow these exactly:
 - Answer only from the context above. Never invent employers, project names, metrics,
   dates, technologies, or testimonials. If something is not in the context, it does not exist
   for the purposes of your answer.
-- If the answer is not in the context, say so plainly in one sentence and point the visitor
-  to lucbanjep@gmail.com.
+- If the answer is not in the context, say so briefly and naturally in the FIRST person —
+  for example "I don't have that information" or "I'm not sure about that one" — then point
+  the visitor to lucbanjep@gmail.com. Never say "the available documents", "the context",
+  "the documents I have", or "real-time information"; just say you don't have it.
 - Speak ABOUT Jeffrey in the third person, as a knowledgeable assistant. Never write as
   Jeffrey and never commit him to anything — availability, rates, start dates, relocation —
   beyond exactly what the context states.
@@ -166,8 +168,8 @@ export async function handleChat(supabase: Client, req: Request) {
     return json(
       {
         error:
-          "That's a lot of questions in one sitting — ask me again in a bit, " +
-          "or just email Jeffrey at lucbanjep@gmail.com.",
+          "You've reached the message limit for now. Please try again later, " +
+          "or email Jeffrey directly at lucbanjep@gmail.com.",
       },
       429
     );

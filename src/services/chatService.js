@@ -4,6 +4,12 @@ import { portfolioAPI } from "@/lib/supabaseClient";
 // consumes an async iterable of text deltas, so the transport could change
 // without the hook or the components noticing.
 
+// Anything we didn't deliberately word server-side (a dropped connection, a
+// 500, a malformed response) surfaces as this instead of a raw technical
+// string the visitor can't act on.
+export const GENERIC_ERROR =
+  "Something went wrong on my end. Please try again in a moment.";
+
 // supabase-js wraps a non-2xx response in a FunctionsHttpError whose
 // `.context` is the raw Response — that's where the server's friendly message
 // (the 429 copy, a validation complaint) actually lives.
@@ -17,7 +23,8 @@ async function toError(error) {
       return wrapped;
     }
   }
-  return error instanceof Error ? error : new Error(String(error));
+  // No deliberate message from the server — don't leak "Failed to fetch".
+  return new Error(GENERIC_ERROR);
 }
 
 export async function* streamChat({ message, history = [], signal }) {
@@ -25,7 +32,7 @@ export async function* streamChat({ message, history = [], signal }) {
   if (error) throw await toError(error);
 
   if (!(data instanceof Response) || !data.body) {
-    throw new Error("The assistant returned an unexpected response.");
+    throw new Error(GENERIC_ERROR);
   }
 
   const reader = data.body.getReader();
@@ -52,7 +59,9 @@ export async function* streamChat({ message, history = [], signal }) {
         if (!payload) continue;
 
         const parsed = JSON.parse(payload);
-        if (parsed.error) throw new Error(parsed.error);
+        // Mid-stream failures arrive as a raw "Error: ..." string — swap it
+        // for the visitor-facing generic rather than surface internals.
+        if (parsed.error) throw new Error(GENERIC_ERROR);
         if (parsed.done) return;
         if (parsed.delta) yield parsed.delta;
       }
