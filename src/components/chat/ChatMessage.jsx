@@ -41,7 +41,7 @@ export default function ChatMessage({ role, content, streaming = false }) {
           </span>
         ) : (
           <>
-            <span className="whitespace-pre-wrap">{content}</span>
+            <span className="whitespace-pre-wrap wrap-anywhere">{content}</span>
             {streaming && (
               <span
                 className={cn("text-accent", !reduceMotion && "animate-cursor")}

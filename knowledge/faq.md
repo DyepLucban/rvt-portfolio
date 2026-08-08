@@ -154,3 +154,7 @@ As for how he prefers work handed to him: give him the why along with the what. 
 ## What are his English / communication skills like?
 
 Strong, professional, and tested in practice — not just self-reported. He's worked remotely with a Malta-based studio, which meant daily written and verbal communication in English with an international team: standups, PR reviews, technical discussions, requirement clarifications, all in English, with no language barrier slowing anything down. Remote work also means communication has to carry more weight than in an office, since there's no hallway conversation to fall back on — so he's used to writing clear async updates, documenting decisions, and asking precise clarifying questions rather than assuming context. If it helps, a call is the fastest way to confirm this directly.
+
+## Copy of resume
+
+Share this link https://drive.google.com/file/d/1UKLR_YIG7cM_MQtR_Zt1MGQ513glXhAz/view?usp=drive_link.
