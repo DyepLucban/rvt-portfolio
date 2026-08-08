@@ -30,10 +30,11 @@ Full-stack versatility framed from a backend lean: Jeffrey positions as a backen
 
 ## Capabilities and Constraints
 
-- Read-only public site: no auth, no admin UI, no forms beyond mailto/external links (GitHub, LinkedIn, email).
+- Almost entirely read-only and public: no auth, no admin UI, no forms beyond mailto/external links (GitHub, LinkedIn, email) — with two deliberate exceptions, both added by the chat feature. Visitors can POST a question to `portfolio/chat`, which is rate-limited per IP (15/hour, 60/day) and logs every exchange to `chat_logs`; and there is one secret-guarded write endpoint, `portfolio/ingest`, reachable only from the `npm run ingest` CLI step.
 - No CMS in this codebase — content changes require direct Supabase DB edits, outside this repo's scope.
 - A resume PDF is referenced at `/resume.pdf` (`src/lib/constants.js` → `SITE.resumeUrl`) but the file does not yet exist in `public/`. This is a known, deliberate gap — the file is coming later; the link wiring should stay as-is in the meantime.
-- No dark/light theme toggle by design (single light palette, per CLAUDE.md).
+- No dark/light theme toggle by design (single dark navy/gold palette, per CLAUDE.md).
+- An AI surface exists: a grounded chat widget on every route, answering from an ingested knowledge base (`knowledge/*.md`) plus the live database. It is bound by the same no-fabrication rule as the rest of the site (Product Principle 4), speaks about Jeffrey in the third person, and never commits him to availability, rates, or start dates beyond what its context states. Conversations are logged, and the widget says so.
 
 ## Brand Commitments
 
@@ -45,6 +46,7 @@ Full-stack versatility framed from a backend lean: Jeffrey positions as a backen
 ## Evidence on Hand
 
 - No real project descriptions, case studies, or experience entries exist in this repo — all of that content lives in the Supabase database and is not visible from the codebase alone. Do not fabricate project names, employers, metrics, or testimonials when working on this site.
+- `knowledge/cv.md` and `knowledge/linkedin.md` are structural scaffolds only — the real content has not been converted from the source PDFs yet, and their placeholders sit inside HTML comments so nothing unverified reaches the chatbot. `knowledge/faq.md` is partially filled from facts already published on the site; the rest is commented TODOs only Jeffrey can answer.
 - Two project-related images exist in `public/images/` (`prev-portfolio.png`, `project-paw.png`) suggesting at least two real projects, but their descriptions/context are not in-repo.
 - No resume file currently present despite being referenced in code (see Capabilities and Constraints).
 

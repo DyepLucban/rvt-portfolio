@@ -15,4 +15,9 @@ export const portfolioAPI = {
   getSkills: () => supabase.functions.invoke("portfolio/skills"),
   getExperiences: () => supabase.functions.invoke("portfolio/experiences"),
   getProjects: () => supabase.functions.invoke("portfolio/projects"),
+  // The only POST. supabase-js hands back the raw `Response` (rather than
+  // parsed JSON) when the content type is text/event-stream, so streaming
+  // works through `invoke` and this stays the one shape for every resource.
+  sendChat: (body, { signal } = {}) =>
+    supabase.functions.invoke("portfolio/chat", { body, signal }),
 };
