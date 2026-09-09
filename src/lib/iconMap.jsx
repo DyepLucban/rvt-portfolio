@@ -42,6 +42,7 @@ const ICON_MAP = {
   "Performance": SI.siCodecrafters,
   "CI/CD": SI.siCodecrafters,
   Supabase: SI.siSupabase,
+  "LangChain": SI.siLangchain
 };
 
 // React component wrapper for Simple Icons
