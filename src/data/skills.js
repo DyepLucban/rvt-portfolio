@@ -4,7 +4,7 @@ export const skills = [
   {
     id: 1,
     category: "Backend",
-    items: ["PHP", "Python", "Node.js", "Laravel", "Codeigniter", "Sails.js", "Express.js", "Adonis.js", "MySQL", "PostgreSQL", "MongoDB", "Redis"],
+    items: ["PHP", "Python", "Node.js", "Laravel", "Codeigniter", "Sails.js", "Express.js", "Adonis.js", "MySQL", "PostgreSQL", "MongoDB", "Redis", "LangChain"],
   },
   {
     id: 2,
