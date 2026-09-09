@@ -52,8 +52,15 @@ export async function streamChatCompletion(
   });
 
   if (!upstream.ok || !upstream.body) {
+    // Keep the raw upstream detail in the function logs for debugging, but
+    // never let Groq's internals (org IDs, billing URLs) reach the visitor.
     const detail = await upstream.text().catch(() => "");
-    throw new Error(`Groq responded ${upstream.status}: ${detail.slice(0, 500)}`);
+    console.error(`Groq responded ${upstream.status}: ${detail.slice(0, 500)}`);
+    throw new Error(
+      upstream.status === 429
+        ? "The assistant is still processing another request. Please try again in a moment."
+        : "The assistant is temporarily unavailable. Please try again in a moment."
+    );
   }
 
   const stream = new ReadableStream({

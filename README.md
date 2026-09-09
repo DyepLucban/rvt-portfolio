@@ -104,5 +104,3 @@ select question, created_at from chat_logs order by created_at desc limit 50;
 
 ### Para kay Rene! 
 ### ![alt text](image.png)
-
-## TEST CHANGES FOR WEBHOOK v10
