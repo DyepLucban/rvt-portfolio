@@ -96,7 +96,7 @@ export default function ChatPanel({
               strokeWidth={2}
               aria-hidden="true"
             />
-            <span>{error.message}</span>
+            <span className="min-w-0 wrap-anywhere">{error.message}</span>
           </div>
         )}
       </div>
