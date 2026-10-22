@@ -2,7 +2,7 @@
 
 export const SITE = {
   name: "Jeffrey Lucban",
-  role: "Backend Engineer",
+  role: "Software/Backend Engineer",
   tagline:
     "Turning complex requirements into reliable and scalable products that streamline operations.",
   email: "lucbanjep@gmail.com",
